@@ -45,6 +45,10 @@ filtered_data = data[data["Month"].isin(selected_months)]
 st.subheader("Filtered Data")
 st.dataframe(filtered_data)
 
+sales_threshold = st.slider("Sales Threshold",100,500,300)
+screened_data = df['sales']>=sales_threshold]
+
+
 # -------------------------------
 # Interactive Chart
 # -------------------------------
