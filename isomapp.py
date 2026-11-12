@@ -8,6 +8,7 @@ import numpy as np
 # -------------------------------
 st.title("📊 Business Sales Dashboard")
 st.write("Analyze monthly sales data interactively!")
+st.write("Testing if st.write works")
 
 # -------------------------------
 # Sample Data
