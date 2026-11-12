@@ -46,7 +46,7 @@ st.subheader("Filtered Data")
 st.dataframe(filtered_data)
 
 sales_threshold = st.slider("Sales Threshold",100,500,300)
-screened_data = df['sales']>=sales_threshold]
+screened_data = df[ df['sales'] >= sales_threshold ]
 
 
 # -------------------------------
