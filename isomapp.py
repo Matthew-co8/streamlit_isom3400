@@ -24,6 +24,9 @@ data = pd.DataFrame({
     "Expenses": expenses
 })
 
+
+st.write(df)
+
 # -------------------------------
 # Sidebar Filters
 # -------------------------------
