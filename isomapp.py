@@ -24,7 +24,7 @@ data = pd.DataFrame({
     "Expenses": expenses
 })
 
-st.header("LOl)
+st.header("LOl")
 st.write(data)
 
 # -------------------------------
