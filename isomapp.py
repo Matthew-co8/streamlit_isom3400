@@ -25,7 +25,7 @@ data = pd.DataFrame({
 })
 
 
-st.write(df)
+st.write(data)
 
 # -------------------------------
 # Sidebar Filters
