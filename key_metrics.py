@@ -21,7 +21,7 @@ df = pd.DataFrame({""Date"": dates, ""Sales ($)"": sales, ""Category"": category
 # 4. Display Key Metrics
 col1, col2 = st.columns(2)
 col1.metric(""Total Sales"", f""${df['Sales ($)'].sum():,}"")
-col2.metric(""Average Daily Sales"", f""${df['Sales ($)'].mean():.2f}"")
+col2.metric(""Average Daily Sales"", f"${df['Sales ($)'].mean():.2f}")
 
 # 5. Interactive Chart & Data Table
 st.subheader(f""{category} Sales Trend"")
