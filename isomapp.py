@@ -21,8 +21,8 @@ age = st.number_input("Enter your age:",
                       value=25)
 st.write(f"Your age is {age}")
 
-age = st.number_input("Enter your age:")
-st.write(f"Your age is {age}")
+weight = st.number_input("Enter your weight:")
+st.write(f"Your weight is {weight}")
 
 # -------------------------------
 # Sample Data
