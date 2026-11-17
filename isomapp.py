@@ -24,6 +24,10 @@ st.write(f"Your age is {age}")
 weight = st.number_input("Enter your weight:")
 st.write(f"Your weight is {weight}")
 
+option = st.selectbox("Choose your favorite color:",
+                      ["Red", "Blue", "Green"])
+st.write(f"You selected: {option}")
+
 # -------------------------------
 # Sample Data
 # -------------------------------
