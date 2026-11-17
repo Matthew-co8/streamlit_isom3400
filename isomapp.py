@@ -9,6 +9,7 @@ import numpy as np
 st.title("📊 Business Sales Dashboard")
 st.write("Analyze monthly sales data interactively!")
 st.write("Testing if st.write works")
+st.markdown("This is <u>underlined text</u> in Streamlit.", unsafe_allow_html=True)
 
 # -------------------------------
 # Sample Data
