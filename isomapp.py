@@ -15,6 +15,12 @@ st.markdown("This is <b>bold text</b> in Streamlit.", unsafe_allow_html=True)
 
 st.write("**BOLD** and *ITALIC*")
 
+age = st.number_input("Enter your age:",
+                      min_value=0,
+                      max_value=120,
+                      value=25)
+st.write(f"Your age is {age}")
+
 # -------------------------------
 # Sample Data
 # -------------------------------
