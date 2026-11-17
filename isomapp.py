@@ -13,6 +13,8 @@ st.markdown("This is <u>underlined text</u> in Streamlit.", unsafe_allow_html=Tr
 st.markdown("This is <i>italic text</i> in Streamlit.", unsafe_allow_html=True)
 st.markdown("This is <b>bold text</b> in Streamlit.", unsafe_allow_html=True)
 
+st.write("**BOLD** and *ITALIC*")
+
 # -------------------------------
 # Sample Data
 # -------------------------------
