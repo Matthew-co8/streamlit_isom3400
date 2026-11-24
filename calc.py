@@ -21,7 +21,7 @@ if st.button("Calculate"):
     elif operation == "Divide":
         result = num1 / num2 if num2 != 0 else "Error: Division by zero"
     elif operation == "Sin()":
-        result = "I do not know"
+        result = num1 / num2 if num2 != 0 else "Error: Division by zero"
     else: 
         result = "invalid operation!"
 
