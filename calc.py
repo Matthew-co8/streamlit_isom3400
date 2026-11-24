@@ -24,9 +24,9 @@ if st.button("Calculate"):
     elif operation == "Sin()":
         result = math.sin(num1)
     elif operation == "log()":
-        result == math.log(num1, num2)
+        result = math.log(num1, num2)
     elif operation == "ln()":
-        result == math.log(num1)
+        result = math.log(num1)
     else: 
         result = "invalid operation!"
 
