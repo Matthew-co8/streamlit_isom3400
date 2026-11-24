@@ -1,16 +1,19 @@
 import streamlit as st
 import pandas as pd
-import os
 
-# Get the current working directory
-current_directory = os.getcwd()
-# Define the file path
-file_path = os.path.join(current_directory, 'winequality-red.csv')
+# Sample data
+data = {'Product': ["A", "B", "C"],
+        'Sales' : [1200,850,950],
+        'Customers' : [300, 400, 350]}
+df = pd.DataFrame(data)
 
-# Read the CSV file into a DataFrame
-df = pd.read_csv(file_path, delimiter=';')
+# Show data with Streamlit Elements
 
-# Display the DataFrame in an interactive table
-st.write("Wine Quality Data")
-st.dataframe(df)
+st.dataframe(df)          # Interactive Table  
+st.data_editor(df)        # Editable Table 
+st.table(df)              # Static Table
+
+# Customize columns directly in the dataframe display
+st.dataframe(df.style.format({'Sales': '${:,.0f}', 'Customers' : '${:,.0f}'}))
+
 
