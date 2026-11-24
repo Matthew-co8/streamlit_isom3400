@@ -1,33 +1,56 @@
 import streamlit as st
 import math
 
-# Title
-st.title("Basic Web Calculator")
+# --- Math Helper Functions ---
+def divide(x, y):
+    if y == 0:
+        raise ValueError("Cannot divide by zero.")
+    return x / y
 
-# Input fields
-num1 = st.number_input("Enter first number", value=0.0)
-num2 = st.number_input("Enter second number", value=0.0)
+def custom_log(x, base):
+    if x <= 0:
+        raise ValueError("Input number must be greater than 0.")
+    if base <= 0 or base == 1:
+        raise ValueError("Log base must be greater than 0 and not equal to 1.")
+    return math.log(x, base)
 
-# Operation selection
-operation = st.selectbox("Choose operation", ["Add", "Subtract", "Multiply", "Divide", "Sin()", "ln()","log()"])
+def natural_log(x):
+    if x <= 0:
+        raise ValueError("Input number must be greater than 0.")
+    return math.log(x)
 
-# Calculate
-if st.button("Calculate"):
-    if operation == "Add":
-        result = num1 + num2
-    elif operation == "Subtract":
-        result = num1 - num2
-    elif operation == "Multiply":
-        result = num1 * num2
-    elif operation == "Divide":
-        result = num1 / num2 if num2 != 0 else "Error: Division by zero"
-    elif operation == "Sin()":
-        result = math.sin(num1)
-    elif operation == "log()":
-        result = math.log(num1, num2)
-    elif operation == "ln()":
-        result = math.log(num1)
-    else: 
-        result = "invalid operation!"
+# --- Operation Registry ---
+# Maps the dropdown label to a (function, requires_second_number) tuple
+OPERATIONS = {
+    "Add": (lambda x, y: x + y, True),
+    "Subtract": (lambda x, y: x - y, True),
+    "Multiply": (lambda x, y: x * y, True),
+    "Divide": (divide, True),
+    "Sin()": (lambda x: math.sin(x), False),
+    "ln()": (natural_log, False),
+    "log()": (custom_log, True),
+}
 
-    st.success(f"Result: {result}")
+# --- Streamlit UI ---
+def main():
+    st.title("Basic Web Calculator")
+
+    operation = st.selectbox("Choose operation", list(OPERATIONS.keys()))
+    func, needs_num2 = OPERATIONS[operation]
+
+    num1 = st.number_input("Enter first number", value=0.0)
+    
+    # Only render the second input if the selected operation uses it
+    num2 = None
+    if needs_num2:
+        label = "Enter base" if operation == "log()" else "Enter second number"
+        num2 = st.number_input(label, value=0.0)
+    if st.button("Calculate"):
+        try:
+            result = func(num1, num2) if needs_num2 else func(num1)
+            st.success(f"Result: {result}")
+        except ValueError as e:
+            st.error(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
